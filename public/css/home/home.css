@@ -1,0 +1,44 @@
+h4{
+	color: #7F56C1;
+	font-size: 24px;
+	vertical-align: bottom;
+}
+
+.form-control{
+	margin-bottom: 20px;
+}
+
+
+
+.sidebar{
+	border-right-style: solid;
+	border-right-width: 2px;
+	border-right-color: #BCA8DE;
+	height: 100vh;
+	margin-top: -23px
+}
+
+.settings-button{
+	margin-top: 50px;
+	padding-top: 50px;
+	border-top-style: solid;
+	border-top-color: #BCA8DE;
+}
+
+.material-icons.purple { 
+	color: #AF83F3;
+	font-size: 30px;
+	vertical-align: sub;
+}
+
+.option-button{
+	width: 100%;
+	background-color: white;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #AF83F3;
+	color: #7F56C1;
+	font-size: 24px;
+	height: 75px;
+	vertical-align: middle;
+}
