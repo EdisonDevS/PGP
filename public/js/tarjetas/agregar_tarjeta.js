@@ -1,0 +1,24 @@
+$(function(){
+
+	$("#btn_crear_tarjeta").click(function(){
+		$.ajax({
+			url:"/crear_tarjeta",
+			type:"POST",
+			data:{
+				cuenta_id:$("#cuenta_id").val(),
+				numero_tarjeta:$("#numero_tarjeta").val(),
+				nombre_tarjeta:$("#nombre_tarjeta").val(),
+				saldo:$("#saldo_inicial").val(),
+				descripcion:$("#descripcion").val(),
+				saldo_bajo:$("#saldo_bajo").val(),
+				divisa:$("#divisa").val(),
+			},
+			success:function(response){
+				console.log(response);
+			},
+			error:function(error){
+				console.log(error);
+			}
+		});
+	});
+})

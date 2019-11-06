@@ -1,0 +1,24 @@
+$(function(){
+	$("#btn_crear_cuenta").click(function(){
+		$.ajax({
+			url:"/crear_cuenta",
+			type:"POST",
+			data:{
+				user_id:$("#user_id").val(),
+				numero_cuenta:$("#numero_cuenta").val(),
+				tipo_cuenta:$("#tipo_cuenta").val(),
+				nombre_cuenta:$("#nombre_cuenta").val(),
+				saldo_inicial:$("#saldo_inicial").val(),
+				descripcion:$("#descripcion").val(),
+				saldo_bajo:$("#saldo_bajo").val(),
+				divisa:$("#divisa").val(),
+			},
+			success:function(response){
+				console.log(response);
+			},
+			error:function(error){
+				console.log(error);
+			}
+		});
+	});
+})
