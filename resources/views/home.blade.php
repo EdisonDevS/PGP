@@ -15,6 +15,9 @@
         <li class="nav-item" id="cargar_cuentas">
           <h4 class="nav-link"><i class="material-icons purple">credit_card</i>   CUENTAS</h4>
         </li>
+        <li class="nav-item" id="cargar_tarjetas">
+          <h4 class="nav-link"><i class="material-icons purple">credit_card</i>   TARJETAS</h4>
+        </li>
         <li class="nav-item" id="cargar_transacciones">
           <h4 class="nav-link"><i class="material-icons purple">monetization_on</i>   TRANSACCIONES</h4>
         </li>

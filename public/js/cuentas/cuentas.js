@@ -1,10 +1,26 @@
 $(function(){
 
+	var $table = $('#table');
+
+	$.ajax({
+		url:'/consultar_cuentas',
+		type:'POST',
+		data:{user_id:$('#user_id').val()},
+		success:function(response)
+		{
+			$table.bootstrapTable({data: response});
+			console.log(response);
+			
+		}
+	});
+	
+
 	//función para la carga de los contenidos
 	function cargar_contenido(event){
 		$.ajax({
 			url:event.data.url,
 			type: "GET",
+			data:{user_id:$('#user_id').val()},
 			success: function(response){
 				$("#content").html("");
 				$("#content").html(response);

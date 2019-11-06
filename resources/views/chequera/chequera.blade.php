@@ -2,7 +2,7 @@
 	<div class="row">
 		
 		<div class="col-md-6">
-			<button class="option-button" type="button">
+			<button id="boton_crear_cheque" class="option-button" type="button">
 			Crear cheque	<i class="material-icons purple">add_circle_outline</i>
 		</button>
 		</div>
@@ -12,5 +12,7 @@
 		</div>
 		
 	</div>
+
+	<script type="text/javascript" src="{{ asset('js/chequera/chequera.js') }}"></script>
 	
 </div>

@@ -1,5 +1,11 @@
 $(function(){
 
+	$.ajaxSetup({
+           headers: { 
+               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')     
+           }
+       });
+
 	//función para la carga de los contenidos
 	function cargar_contenido(event){
 
@@ -30,6 +36,14 @@ $(function(){
 		cargar_contenido
 	);
 
+	$("#cargar_tarjetas").click(
+		{
+			url: "/tarjetas",
+			id_boton:"#cargar_tarjetas"
+		},
+		cargar_contenido
+	);
+
 	$("#cargar_transacciones").click(
 		{
 			url: "/transacciones",
@@ -39,7 +53,13 @@ $(function(){
 	);
 
 
-	$("#cargar_presupuestos").click();
+	$("#cargar_presupuestos").click(
+		{
+			url: "/presupuestos",
+			id_boton:"#cargar_presupuestos"
+		},
+		cargar_contenido
+	);
 
 	$("#cargar_smart_progress").click(
 		{
