@@ -1,5 +1,38 @@
 $(function(){
 
+	$('#remove').click(function () {
+		var datos = $table.bootstrapTable('getSelections');
+
+		datos.forEach((elemento) => {
+			$.ajax({
+				url:'/borrar_tarjetas',
+				type:'POST',
+				data:elemento,
+				success:function(response)
+				{
+					$table.bootstrapTable({data: response});
+					
+					console.log(response);
+					
+					var ids = $.map($table.bootstrapTable('getSelections'), function (row) {
+			          return row.id
+			        })
+			        $table.bootstrapTable('remove', {
+			          field: 'id',
+			          values: ids
+			        })
+					
+				},
+				error:function(error)
+				{
+					console.log(error);
+				}
+			});
+
+		});
+      	
+    });
+
 	var $table = $('#table')
 
 	$.ajax({
@@ -11,6 +44,10 @@ $(function(){
 			$table.bootstrapTable({data: response});
 			console.log(response);
 			
+		},
+		error:function(error)
+		{
+			console.log(error);
 		}
 	});
 

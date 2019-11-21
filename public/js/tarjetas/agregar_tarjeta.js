@@ -15,6 +15,14 @@ $(function(){
 			},
 			success:function(response){
 				console.log(response);
+				alert('Se ha creado la tarjeta con exito');
+				$("#cuenta_id").val("")
+				$("#numero_tarjeta").val("")
+				$("#nombre_tarjeta").val("")
+				$("#saldo_inicial").val("")
+				$("#descripcion").val("")
+				$("#saldo_bajo").val("")
+				$("#divisa").val("")
 			},
 			error:function(error){
 				console.log(error);

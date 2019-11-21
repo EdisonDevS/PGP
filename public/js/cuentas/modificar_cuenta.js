@@ -46,6 +46,15 @@ $(function(){
 			},
 			success:function(response){
 				console.log(response);
+				alert('Se ha modificado la cuenta con exito');
+				$("#numero_cuenta").val("")
+				$("#numero_cuenta").val("")
+				$("#tipo_cuenta").val("")
+				$("#nombre_cuenta").val("")
+				$("#saldo_actual").val("")
+				$("#descripcion").val("")
+				$("#saldo_bajo").val("")
+				$("#divisa").val("")
 			}
 		});
 	});

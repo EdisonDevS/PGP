@@ -49,6 +49,14 @@ $(function(){
 			},
 			success:function(response){
 				console.log(response);
+				alert('Se ha modificado la tarjeta con exito');
+				$("#tarjeta_id").val("")
+				$("#cuenta_id").val("")
+				$("#nombre_tarjeta").val("")
+				$("#saldo_actual").val("")
+				$("#descripcion").val("")
+				$("#saldo_bajo").val("")
+				$("#divisa").val("")
 			},
 			error:function(error)
 			{

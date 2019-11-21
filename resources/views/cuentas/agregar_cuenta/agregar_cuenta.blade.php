@@ -9,7 +9,7 @@
 					<h4>Información de la cuenta</h4>
 				</div>
 				<div class="col-md-6">
-					<input class="form-control" type="text" id="numero_cuenta" name="numero_cuenta" value="" placeholder="Numero de cuenta">
+					<input class="form-control" type="number" id="numero_cuenta" name="numero_cuenta" value="" placeholder="Numero de cuenta" autocomplete="off">
 				</div>
 				
 				<div class="col-md-6">
@@ -36,7 +36,11 @@
 			</div>
 			
 			<div class="col-md-12">
-				<input class="form-control" type="text" id="saldo_bajo" name="" value="" placeholder="Saldo bajo">
+				<input class="form-control" type="number" id="saldo_bajo" name="" value="" placeholder="Saldo bajo">
+			</div>
+
+			<div class="col-md-12">
+				<input class="form-control" type="text" id="banco" name="" value="" placeholder="Banco">
 			</div>
 			
 			<div class="col-md-12">

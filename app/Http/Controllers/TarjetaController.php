@@ -20,8 +20,8 @@ class TarjetaController extends Controller
 
     public function vistaModificarTarjeta(Request $request)
     {
-        $info_cuentas = User::find($request['user_id'])->cuentas;
-        $info_tarjetas = User::find($request['user_id'])->tarjetas;
+        $info_cuentas = User::find($request['user_id'])->cuentas()->where('activa', true)->get();
+        $info_tarjetas = User::find($request['user_id'])->tarjetas()->where('tarjeta_activa', true)->get();
 
         return view('tarjetas.modificar_tarjeta.modificar_tarjeta', compact('info_cuentas', 'info_tarjetas'));
     }
@@ -59,7 +59,7 @@ class TarjetaController extends Controller
 
     public function idTarjetas(Request $request)
     {
-        $info_tarjetas = User::find($request['user_id'])->tarjetas;
+        $info_tarjetas = User::find($request['user_id'])->tarjetas()->where('tarjeta_activa', true)->get();
 
         return response()->json($info_tarjetas);        
     }
@@ -69,5 +69,21 @@ class TarjetaController extends Controller
         $cuenta = Tarjeta::find($request['tarjeta_id'])->cuenta;
 
         return response()->json($cuenta);
+    }
+
+    public function borrarTarjetas(Request $request)
+    {
+        
+
+        $cuenta = Cuenta::find($request['cuenta_id']);
+        $user_id = $cuenta->user_id;
+
+        $tarjeta = Tarjeta::find($request['id']);
+        $tarjeta->tarjeta_activa = false;
+        $tarjeta->save();
+
+        $info_tarjetas = User::find($user_id)->tarjetas()->where('tarjeta_activa', true)->get();
+
+        return response()->json($info_tarjetas);
     }
 }

@@ -1,0 +1,32 @@
+$(function(){
+
+	$("#btn_crear_cheque").click(function(){
+		$.ajax({
+			url:"/crear_cheque",
+			type:"POST",
+			data:{
+				numero_cheque:$("#numero_cheque").val(),
+				nombre_destinatario:$("#nombre_destinatario").val(),
+				cuenta_id:$("#cuenta_id").val(),
+				documento_destinatario:$("#documento_destinatario").val(),
+				valor:$("#valor").val(),
+				fecha_de_expendio:$("#fecha_de_expendio").val(),
+				descripcion:$("#descripcion").val(),
+			},
+			success:function(response){
+				console.log(response);
+				alert('Se ha creado el cheque con exito');
+				$("#numero_cheque").val("")
+				$("#nombre_destinatario").val("")
+				$("#cuenta_id").val("")
+				$("#documento_destinatario").val("")
+				$("#valor").val("")
+				$("#fecha_de_expendio").val("")
+				$("#descripcion").val("")
+			},
+			error:function(error){
+				console.log(error);
+			}
+		});
+	});
+})

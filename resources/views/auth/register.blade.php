@@ -76,7 +76,11 @@
                             <label for="tipo_documento" class="col-md-4 col-form-label text-md-right">{{ __('Tipo documento') }}</label>
 
                             <div class="col-md-6">
-                                <input id="tipo_documento" type="tipo_documento" class="form-control @error('tipo_documento') is-invalid @enderror" name="tipo_documento" value="{{ old('tipo_documento') }}" required autocomplete="tipo_documento">
+                                <select class="form-control" id="tipo_documento" name="tipo_documento">
+                                    <option value="C.C">C.C</option>
+                                    <option value="C.E">C.E</option>
+                                    <option value="Pasaporte">Pasaporte</option>
+                                </select>
                             </div>
                         </div>
 
@@ -93,7 +97,11 @@
                             <label for="genero" class="col-md-4 col-form-label text-md-right">{{ __('Genero') }}</label>
 
                             <div class="col-md-6">
-                                <input id="genero" type="text" class="genero" name="genero" required autocomplete="genero">
+                                <select class="form-control" id="genero">
+                                    <option>Masculino</option>
+                                    <option>Femenino</option>
+                                    <option>Otro</option>
+                                </select>
                             </div>
                         </div>
 

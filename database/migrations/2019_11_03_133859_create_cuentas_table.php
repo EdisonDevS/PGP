@@ -16,6 +16,7 @@ class CreateCuentasTable extends Migration
         Schema::create('cuentas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
+            $table->string('banco');
             $table->string('numero_cuenta');
             $table->float('saldo',16,2);
             $table->float('saldo_bajo',16,2);
@@ -23,6 +24,7 @@ class CreateCuentasTable extends Migration
             $table->string('tipo_cuenta');
             $table->string('divisa');
             $table->string('descripcion');
+            $table->boolean('activa')->default(true);
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

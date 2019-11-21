@@ -47,7 +47,7 @@
 			</div>
 			
 			<div class="col-md-12">
-				<input class="form-control" type="text" id="saldo_bajo" name="" value="" placeholder="Saldo bajo">
+				<input class="form-control" type="number" id="saldo_bajo" name="" value="" placeholder="Saldo bajo">
 			</div>
 			
 			<div class="col-md-12">

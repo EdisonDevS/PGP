@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Cuenta;
 use App\Tarjeta;
 use App\Transaccion;
+use App\Cheque;
+use App\Presupuesto;
 
 
 class User extends Authenticatable
@@ -57,5 +59,15 @@ class User extends Authenticatable
     public function transacciones()
     {
         return $this->hasManyDeep(Transaccion::class, [Cuenta::class, Tarjeta::class]);
+    }
+
+    public function cheques()
+    {
+        return $this->hasManyThrough(Cheque::class, Cuenta::class);
+    }
+
+    public function presupuestos()
+    {
+        return $this->hasManyThrough(Presupuesto::class, Cuenta::class);
     }
 }

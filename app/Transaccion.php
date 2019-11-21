@@ -9,7 +9,7 @@ use App\Cuenta;
 class Transaccion extends Model
 {
     protected $fillable = [
-        'tarjeta_id', 'valor', 'descripcion', 'cuenta_destino_id',
+        'tarjeta_id', 'valor', 'descripcion', 'cuenta_destino_id', 'transaccion_activa',
     ];
 
     public function tarjeta()

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTarjetasTable extends Migration
+class CreatePresupuestosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,14 @@ class CreateTarjetasTable extends Migration
      */
     public function up()
     {
-        Schema::create('tarjetas', function (Blueprint $table) {
+        Schema::create('presupuestos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('cuenta_id');
-            $table->string('numero_tarjeta');
-            $table->float('saldo',16,2);
-            $table->float('saldo_bajo',16,2);
-            $table->string('nombre_tarjeta');
-            $table->string('divisa');
+            $table->string('nombre_presupuesto');
+            $table->float('saldo_presupuesto');
             $table->string('descripcion');
-            $table->boolean('tarjeta_activa')->default(true);
+            $table->string('divisa');
             $table->foreign('cuenta_id')->references('id')->on('cuentas');
-
             $table->timestamps();
         });
     }
@@ -36,6 +32,6 @@ class CreateTarjetasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tarjetas');
+        Schema::dropIfExists('presupuestos');
     }
 }

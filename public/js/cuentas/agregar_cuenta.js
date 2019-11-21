@@ -12,9 +12,20 @@ $(function(){
 				descripcion:$("#descripcion").val(),
 				saldo_bajo:$("#saldo_bajo").val(),
 				divisa:$("#divisa").val(),
+				banco:$("#banco").val(),
 			},
 			success:function(response){
 				console.log(response);
+				alert('Se ha creado la cuenta con exito');
+				$("#numero_cuenta").val("")
+				$("#tipo_cuenta").val("")
+				$("#nombre_cuenta").val("")
+				$("#saldo_inicial").val("")
+				$("#descripcion").val("")
+				$("#saldo_bajo").val("")
+				$("#divisa").val("")
+				$("#banco").val("")
+
 			},
 			error:function(error){
 				console.log(error);

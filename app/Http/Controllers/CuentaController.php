@@ -19,6 +19,7 @@ class CuentaController extends Controller
     		'tipo_cuenta' => $request['tipo_cuenta'], 
     		'divisa' => $request['divisa'], 
     		'descripcion' => $request['descripcion'],
+            'banco' => $request['banco'],
     	]);
 
     	return "Cuenta creada";
@@ -26,17 +27,34 @@ class CuentaController extends Controller
 
     public function vistaModificarCuenta(Request $request)
     {
-        $info_cuentas = User::find($request['user_id'])->cuentas;
+        $info_cuentas = User::find($request['user_id'])->cuentas()->where('activa', true)->get();
 
         return view('cuentas.modificar_cuenta.modificar_cuenta', compact('info_cuentas'));
     }
 
     public function idCuentas(Request $request)
     {
-        $info_cuentas = User::find($request['user_id'])->cuentas;
+        $info_cuentas = User::find($request['user_id'])->cuentas()->where('activa', true)->get();;
 
         return response()->json($info_cuentas);
     }
+
+
+    public function borrarCuentas(Request $request)
+    {
+        
+
+        $user_id = $request['user_id'];
+
+        $cuenta = Cuenta::find($request['id']);
+        $cuenta->activa = false;
+        $cuenta->save();
+
+        $info_cuentas = User::find($user_id)->cuentas()->where('activa', true)->get();;
+
+        return response()->json($info_cuentas);
+    }
+
 
     public function actualizarCuenta(Request $request)
     {
@@ -67,8 +85,6 @@ class CuentaController extends Controller
         }
         else
             return response()->json();
-        
-
         
     }
 }

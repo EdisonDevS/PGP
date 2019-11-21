@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTarjetasTable extends Migration
+class CreateChequesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,17 @@ class CreateTarjetasTable extends Migration
      */
     public function up()
     {
-        Schema::create('tarjetas', function (Blueprint $table) {
+        Schema::create('cheques', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('cuenta_id');
-            $table->string('numero_tarjeta');
-            $table->float('saldo',16,2);
-            $table->float('saldo_bajo',16,2);
-            $table->string('nombre_tarjeta');
-            $table->string('divisa');
+            $table->string('numero_cheque');
+            $table->float('valor');
             $table->string('descripcion');
-            $table->boolean('tarjeta_activa')->default(true);
+            $table->string('nombre_destinatario');
+            $table->string('documento_destinatario');
+            $table->boolean('cheque_activo')->default(true);
+            $table->string('fecha_de_expendio');
             $table->foreign('cuenta_id')->references('id')->on('cuentas');
-
             $table->timestamps();
         });
     }
@@ -36,6 +35,6 @@ class CreateTarjetasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tarjetas');
+        Schema::dropIfExists('cheques');
     }
 }

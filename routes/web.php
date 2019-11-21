@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -55,10 +55,6 @@ Route::get('/modificar_transaccion', function() {
 	return view('transacciones.modificar_transaccion.modificar_transaccion');
 });
 
-Route::get('/crear_cheque', function() {
-	return view('chequera.crear_cheque.crear_cheque');
-});
-
 Route::get('/presupuestos', function() {
 	return view('presupuestos.presupuestos');
 });
@@ -90,3 +86,23 @@ Route::post('/modificar_transaccion', 'TransaccionController@actualizarTransacci
 Route::post('/consultar_cuenta_numero', 'CuentaController@consultarPorNumero');
 
 Route::post('/consultar_transacciones', 'TransaccionController@consultaTransacciones');
+
+Route::get('/crear_cheque','ChequesController@vistaCrearCheques');
+
+Route::post('/crear_cheque', 'ChequesController@crearCheque');
+
+Route::post('/consultar_cheques', 'ChequesController@consultarCheques');
+
+Route::post('/borrar_cuentas', 'CuentaController@borrarCuentas');
+
+Route::post('/borrar_tarjetas', 'TarjetaController@borrarTarjetas');
+
+Route::post('/borrar_transacciones', 'TransaccionController@borrarTransacciones');
+
+Route::post('/borrar_cheques', 'ChequesController@borrarCheques');
+
+Route::get('/crear_presupuesto', 'PresupuestosController@vistaCrearPresupuesto');
+
+Route::post('/crear_presupuesto', 'PresupuestosController@crearPresupuesto');
+
+Route::post('/consultar_presupuestos', 'PresupuestosController@consultarPresupuestos');

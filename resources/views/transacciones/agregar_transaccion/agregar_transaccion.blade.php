@@ -42,7 +42,7 @@
 		<div class="col-md-8">
 			<div class="row">
 				<div class="col-md-6">
-					<input class="form-control" type="text" id="cuenta_destino" name="" value="" placeholder="Número de cuenta">
+					<input class="form-control" type="number" id="cuenta_destino" name="" value="" placeholder="Número de cuenta">
 				</div>
 				<div class="col-md-6">
 					<p id="lbl_info_cuenta"></p>

@@ -19,6 +19,7 @@ class CreateTransaccionsTable extends Migration
             $table->float('valor');
             $table->string('descripcion');
             $table->unsignedBigInteger('cuenta_destino_id');
+            $table->boolean('transaccion_activa')->default(true);
             $table->foreign('cuenta_destino_id')->references('id')->on('cuentas');
             $table->foreign('tarjeta_id')->references('id')->on('tarjetas');
             $table->timestamps();

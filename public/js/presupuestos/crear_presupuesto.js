@@ -1,0 +1,29 @@
+$(function(){
+	$("#btn_guardar_cambios").click(function(){
+		$.ajax({
+			url:"/crear_presupuesto",
+			type:"POST",
+			data:{
+				user_id:$("#user_id").val(),
+				cuenta_id:$("#cuenta_id").val(),
+				nombre_presupuesto:$("#nombre_presupuesto").val(),
+				saldo_presupuesto:$("#saldo_presupuesto").val(),
+				descripcion:$("#descripcion").val(),
+				divisa:$("#divisa").val(),
+			},
+			success:function(response){
+				console.log(response);
+				alert('Se ha creado la cuenta con exito');
+				$("#cuenta_id").val("")
+				$("#nombre_presupuesto").val("")
+				$("#saldo_presupuesto").val("")
+				$("#descripcion").val("")
+				$("#divisa").val("")
+
+			},
+			error:function(error){
+				console.log(error);
+			}
+		});
+	});
+})

@@ -41,7 +41,7 @@ $(function(){
 
 	$('#cuenta_destino').keyup(function(){
 		$.ajax({
-			url:'consultar_cuenta_numero',
+			url:'/consultar_cuenta_numero',
 			type:'POST',
 			data:{cuenta_destino:$("#cuenta_destino").val()},
 			success:function(response){
@@ -49,14 +49,14 @@ $(function(){
 				console.log(response.length);
 				if(response.length != 0)
 				{
-					//console.log(response);
+					console.log(response);
 					$('#lbl_info_cuenta').css('color','black');
 					$('#lbl_info_cuenta').html('<b>Propietario: </b>'+response.nombres+' '+response.apellidos);
 					$('#cuenta_destino_id').val(response.id);
 				}
 				else
 				{
-					//console.log(response);
+					console.log(response);
 					$('#lbl_info_cuenta').css('color','red');
 					$('#lbl_info_cuenta').html('<b>No existe una cuenta con este número</b>');
 					$('#cuenta_destino_id').val();
@@ -83,6 +83,11 @@ $(function(){
 			},
 			success:function(response){
 				console.log(response);
+				alert('Se ha creado la transacción con exito');
+				$("#tarjeta_id").val("")
+				$("#valor").val("")
+				$("#descripcion").val("")
+				$("#cuenta_destino_id").val("")
 			},
 			error:function(error)
 			{
